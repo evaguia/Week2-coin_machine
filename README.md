@@ -14,7 +14,7 @@ The player starts with **100 coins** and bets any amount each turn. Three random
 
 ## Symbols
 
-🍕 🥨 🥖 🍥 🍩 🍪
+🍕 🥨 🥖 🍥 🍩 🍪 🥐 🧀 🥫 🍙 🥟 🍣
 
 ## How to run
 
