@@ -4,7 +4,7 @@ import random as rdm
 symboles = ["🍕", "🥨", "🥖", "🍥", "🍩", "🍪"]
 
 # Choose the 3 symboles
-def choose():
+def choose(symboles):
     s1 = rdm.choice(symboles)  
     s2 = rdm.choice(symboles)
     s3 = rdm.choice(symboles)
@@ -24,6 +24,10 @@ def compute_gains(s1, s2, s3, bet):
         print("You lost...")
         return 0
 
+def level_two(symboles):
+    return symboles + ["🥐", "🧀", "🥫", "🍙", "🥟", "🍣"]
+
+
 # Display number of coins 
 def play(coins):
     print("=========== COIN MACHINE ===========")
@@ -31,6 +35,14 @@ def play(coins):
 
 coins = 100 
 print("============= WELCOME TO THE COIN MACHINE =============")
+level = input("Choose level 1 or level 2")
+
+# ← ICI, avant le while
+if level == "1":
+    symboles = ["🍕", "🥨", "🥖", "🍥", "🍩", "🍪"]
+elif level == "2":
+    symboles = level_two(symboles)
+
 
 # Game Loop
 while True:
@@ -55,13 +67,15 @@ while True:
 
      coins -= bet
      if bet != 0:
-        s1, s2, s3 = choose()
+        symboles = level_two(symboles)
+        s1, s2, s3 = choose(symboles)
         print(f"{s1}  {s2}  {s3}")
         gain = compute_gains(s1, s2, s3, bet)
         coins += gain
         play(coins)
         if coins == 0:
           print("YOU LOST --- NO COINS LEFT")
+          break
      else:
         print("See you soon !")
         break
